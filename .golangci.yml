@@ -45,13 +45,16 @@ linters-settings:
       - '^os\.(DirEntry|FileInfo|FileMode|PathError)$' # deprecated in Go 1.16, import them from 'io/fs' instead
       - '\.Readdir$' # deprecated in Go 1.16, use ReadDir instead
     exclude_godoc_examples: false
+  gci:
+    sections:
+      - standard
+      - default
+      - prefix(github.com/datawire/ocibuild)
   gofmt:
     simplify: true
   gofumpt:
     lang-version: "1.17"
     extra-rules: true
-  goimports:
-    local-prefixes: github.com/datawire/ocibuild
   gosec:
     excludes:
       - G306 # honor umask

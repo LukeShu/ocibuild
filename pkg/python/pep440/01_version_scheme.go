@@ -1,4 +1,5 @@
 // Copyright (C) 2021  Ambassador Labs
+// Copyright (C) 2023  Luke Shumaker <lukeshu@lukeshu.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -445,7 +446,7 @@ var preReleaseOrder = map[string]int{
 }
 
 func cmpPreRelease(a, b PublicVersion) int {
-	var aL, aN, bL, bN int
+	var aL, aN, bL, bN int //nolint:varnamelen // a's and b's `L` (letter) and `N` (number) parts
 	var ok bool
 	if a.Pre != nil {
 		aL, ok = preReleaseOrder[a.Pre.L]
