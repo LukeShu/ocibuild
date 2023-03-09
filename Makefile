@@ -116,7 +116,7 @@ tools/bin/%: tools/src/%.sh
 
 # go mod tidy
 
-go_version = 1.18
+go_version = 1.20
 go_compat  = 1.18
 
 go-mod-tidy:

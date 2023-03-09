@@ -7,11 +7,16 @@ linters:
   enable-all: true
   disable:
     # deprecated
+    - deadcode         # deprecated, replaced by 'unused'
     - exhaustivestruct # deprecated, replaced by 'exhaustruct'
     - golint           # deprecated, replaced by 'revive'
+    - ifshort          # deprecated
     - interfacer       # deprecated
     - maligned         # deprecated, replaced by 'govet fieldalignement'
+    - nosnakecase      # deprecated, replaced by 'revive var-naming'
     - scopelint        # deprecated, replaced by 'exportloopref'
+    - structcheck      # deprecated, replaced by 'unused'
+    - varcheck         # deprecated, replaced by 'unused'
 
     # style
     - godot          # style: sentence fragments are just too useful

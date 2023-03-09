@@ -132,7 +132,7 @@ func InstallWheel(
 		} else {
 			maxWheelTimeRoundedUp := maxWheelTime.Round(time.Second)
 			if maxWheelTimeRoundedUp.Before(maxWheelTime) {
-				maxWheelTimeRoundedUp.Add(time.Second)
+				maxWheelTimeRoundedUp = maxWheelTimeRoundedUp.Add(time.Second)
 			}
 			// Add 1 more second, so that .pyc files have an mtime after their source
 			// .py file.

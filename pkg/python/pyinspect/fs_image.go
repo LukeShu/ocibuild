@@ -1,4 +1,5 @@
 // Copyright (C) 2021-2022  Ambassador Labs
+// Copyright (C) 2023  Luke Shumaker <lukeshu@lukeshu.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -37,8 +38,8 @@ func linuxFilepathSplitList(path string) []string {
 	return strings.Split(path, ":")
 }
 
-// lookupEnv mimics os.LookupEnv, but always behaves as if GOOS=linux, and operates on a a given
-// list of strings rather than os.Environ().  Also there's no caching or anything like that.
+// lookupEnv mimics os.LookupEnv, but always behaves as if GOOS=linux, and operates on a given list
+// of strings rather than os.Environ().  Also there's no caching or anything like that.
 func lookupEnv(environ []string, key string) (val string, ok bool) {
 	prefix := key + "="
 	for _, keyval := range environ {

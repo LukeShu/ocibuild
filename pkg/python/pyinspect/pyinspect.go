@@ -1,4 +1,5 @@
 // Copyright (C) 2021-2022  Ambassador Labs
+// Copyright (C) 2023  Luke Shumaker <lukeshu@lukeshu.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -84,10 +85,10 @@ func Shebangs(sys FS, generic string) (console, graphical string, err error) {
 }
 
 type DynamicInfo struct {
-	MagicNumberB64 string
-	Tags           pep425.Installer
-	VersionInfo    python.VersionInfo
-	Scheme         python.Scheme
+	MagicNumberB64 string             `json:"MagicNumberB64"`
+	Tags           pep425.Installer   `json:"Tags"`
+	VersionInfo    python.VersionInfo `json:"VersionInfo"`
+	Scheme         python.Scheme      `json:"Scheme"`
 }
 
 func Dynamic(ctx context.Context, cmdline ...string) (*DynamicInfo, error) {
