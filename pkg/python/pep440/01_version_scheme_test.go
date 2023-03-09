@@ -1,4 +1,5 @@
 // Copyright (C) 2021-2022  Ambassador Labs
+// Copyright (C) 2023  Luke Shumaker <lukeshu@lukeshu.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -120,6 +121,7 @@ func TestSort(t *testing.T) {
 			"2013.2",
 		},
 		"summary-of-permitted-suffixes-and-relative-ordering": {
+			"1.dev0",
 			"1.0.dev456",
 			"1.0a1",
 			"1.0a2.dev456",
@@ -137,6 +139,7 @@ func TestSort(t *testing.T) {
 			"1.0+5",
 			"1.0.post456.dev34",
 			"1.0.post456",
+			"1.0.15",
 			"1.1.dev1",
 		},
 		// our own

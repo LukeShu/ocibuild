@@ -124,6 +124,10 @@ import (
 //	> Summary of differences from pkg_resources.parse_version
 //	> =======================================================
 //	>
+//	> * Note: this comparison is to ``pkg_resourses.parse_version`` as it existed at
+//	>   the time the PEP was written. After the PEP was accepted, setuptools 6.0 and
+//	>   later versions adopted the behaviour described in this PEP.
+//	>
 //	> * Local versions sort differently, this PEP requires that they sort as greater
 //	>   than the same version without a local version, whereas
 //	>   ``pkg_resources.parse_version`` considers it a pre-release marker.
