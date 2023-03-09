@@ -52,7 +52,7 @@ package pep440
 //	> Projects include Python libraries, frameworks, scripts, plugins,
 //	> applications, collections of data or other resources, and various
 //	> combinations thereof. Public Python projects are typically registered on
-//	> the `Python Package Index <https://pypi.python.org>`__.
+//	> the `Python Package Index <https://pypi.org/>`__.
 //	>
 //	> "Releases" are uniquely identified snapshots of a project.
 //	>

@@ -1017,7 +1017,7 @@ func (a PublicVersion) Cmp(b PublicVersion) int {
 //	>
 //	> Specific build information may also be included in local version labels.
 //	>
-//	> .. _Semantic versioning: http://semver.org/
+//	> .. _Semantic versioning: https://semver.org/
 //	>
 //	>
 //	> DVCS based version labels

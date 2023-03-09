@@ -475,7 +475,7 @@ import (
 //	>    <https://github.com/pypa/packaging/blob/master/tasks/check.py>`__
 //	>
 //	> .. [4] `File URIs in Windows
-//	>    <http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`__
+//	>    <https://web.archive.org/web/20130321051043/http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`__
 //	>
 //	> .. [5] `Proof of Concept: PEP 440 within pip
 //	>     <https://github.com/pypa/pip/pull/1894>`__
@@ -496,7 +496,7 @@ import (
 //	>   <https://github.com/pypa/packaging/pull/1>`__
 //	>
 //	> * `Pessimistic version constraint
-//	>   <http://docs.rubygems.org/read/chapter/16>`__
+//	>   <https://web.archive.org/web/20130509214125/http://docs.rubygems.org/read/chapter/16>`__
 //	>
 //	> * `Changing the status of PEP 440 to Provisional
 //	>   <https://mail.python.org/pipermail/distutils-sig/2014-December/025412.html>`__
