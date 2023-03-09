@@ -7,15 +7,17 @@ linters:
   enable-all: true
   disable:
     # deprecated
-    - golint     # deprecated, replaced by 'revive'
-    - interfacer # deprecated
-    - maligned   # deprecated, replaced by 'govet fieldalignement'
-    - scopelint  # deprecated, replaced by 'exportloopref'
+    - exhaustivestruct # deprecated, replaced by 'exhaustruct'
+    - golint           # deprecated, replaced by 'revive'
+    - interfacer       # deprecated
+    - maligned         # deprecated, replaced by 'govet fieldalignement'
+    - scopelint        # deprecated, replaced by 'exportloopref'
 
     # style
-    - nlreturn # style: overly nit-picky whitespace linter
-    - wsl      # style: overly nit-picky whitespace linter
-    - godot    # style: sentence fragments are just too useful
+    - godot          # style: sentence fragments are just too useful
+    - nlreturn       # style: overly nit-picky whitespace linter
+    - nonamedreturns # style: useful for godoc purposes
+    - wsl            # style: overly nit-picky whitespace linter
 
     # correctness
     - tagliatelle # JSON names aren't up to us
