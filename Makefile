@@ -61,11 +61,6 @@ LICENSE.txt:
 pkg/cliutil/LICENSE.pflag.txt:
 	curl https://raw.githubusercontent.com/spf13/pflag/ad68c28ee799163e627e77fcc6e8ecaa866e3535/LICENSE >$@
 
-go-mod-tidy:
-	go mod tidy
-	go mod vendor
-.PHONY: go-mod-tidy
-
 # Install
 
 install: $(DESTDIR)$(bindir)/$(name)
@@ -109,7 +104,7 @@ lint: tools/bin/golangci-lint
 	tools/bin/golangci-lint run ./...
 .PHONY: lint
 
-# Aux
+# Tools
 
 tools/bin/%: tools/src/%/pin.go tools/src/%/go.mod
 	cd $(<D) && GOOS= GOARCH= go build -o $(abspath $@) $$(sed -En 's,^import "(.*)".*,\1,p' pin.go)
@@ -118,6 +113,28 @@ tools/bin/crane: tools/bin/%: tools/src/%/pin.go go.mod
 tools/bin/%: tools/src/%.sh
 	mkdir -p $(@D)
 	install -m755 $< $@
+
+# go mod tidy
+
+go_version = 1.17
+go_compat  = 1.17
+
+go-mod-tidy:
+.PHONY: go-mod-tidy
+
+go-mod-tidy: go-mod-tidy/main
+go-mod-tidy/main:
+	rm -f go.sum
+	go mod tidy -go $(go_version) -compat $(go_compat)
+.PHONY: go-mod-tidy/main
+
+go-mod-tidy: $(patsubst tools/src/%/go.mod,go-mod-tidy/tools/%,$(wildcard tools/src/*/go.mod))
+go-mod-tidy/tools/%: tools/src/%/go.mod
+	rm -f tools/src/$*/go.sum
+	cd tools/src/$* && go mod tidy -go $(go_version) -compat $(go_compat)
+.PHONY: go-mod-tidy/tools/%
+
+# Boilerplate
 
 .DELETE_ON_ERROR:
 .PHONY: FORCE
