@@ -163,7 +163,7 @@ func (c Client) getHTML5Index(ctx context.Context, requestURL string) ([]Link, e
 		if node.Type != html.ElementNode || node.Data != "a" {
 			return nil
 		}
-		link := Link{ //nolint:exhaustivestruct // other fields get set below
+		link := Link{ //nolint:exhaustruct // other fields get set below
 			DataAttrs: make(map[string]string),
 		}
 		for _, attr := range node.Attr {

@@ -80,7 +80,7 @@ linters-settings:
     require-explanation: true
     require-specific: true
     allow-no-explanation:
-      - exhaustivestruct # just make it clear that it's intentional
+      - exhaustruct # just make it clear that it's intentional
       - lll # explanations are good, but often would just make things worse
   stylecheck:
     go: '1.17'
@@ -122,7 +122,7 @@ issues:
       text: "receiver-naming: receiver name a should be consistent with previous receiver name"
       source: '^func \(a \S+\) Cmp\(b \S+\) int {'
     - # Some common structs will never have everything set
-      linters: [exhaustivestruct]
+      linters: [exhaustruct]
       source: '(&tar\.Header|&cobra\.Command|testutil\.QuickConfig|quick\.Config){'
     - # Allow math/rand in tests
       linters: [gosec]

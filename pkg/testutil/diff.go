@@ -30,7 +30,7 @@ func DumpLayerFull(layer ociv1.Layer) (str string, err error) {
 		}
 	}
 
-	spewConfig := spew.ConfigState{ //nolint:exhaustivestruct
+	spewConfig := spew.ConfigState{ //nolint:exhaustruct
 		Indent:                  "  ",
 		DisableCapacities:       true,
 		DisablePointerAddresses: true,
@@ -180,7 +180,7 @@ func AssertEqualLayers(t *testing.T, exp, act ociv1.Layer) bool {
 		return false
 	}
 	if expStr != actStr {
-		diff, _ := difflib.GetUnifiedDiffString(difflib.UnifiedDiff{ //nolint:exhaustivestruct
+		diff, _ := difflib.GetUnifiedDiffString(difflib.UnifiedDiff{ //nolint:exhaustruct
 			A:        difflib.SplitLines(expStr),
 			B:        difflib.SplitLines(actStr),
 			FromFile: "Expected",
@@ -220,7 +220,7 @@ func AssertEqualLayers(t *testing.T, exp, act ociv1.Layer) bool {
 		return false
 	}
 	if expStr != actStr {
-		diff, _ := difflib.GetUnifiedDiffString(difflib.UnifiedDiff{ //nolint:exhaustivestruct
+		diff, _ := difflib.GetUnifiedDiffString(difflib.UnifiedDiff{ //nolint:exhaustruct
 			A:        difflib.SplitLines(expStr),
 			B:        difflib.SplitLines(actStr),
 			FromFile: "Expected",

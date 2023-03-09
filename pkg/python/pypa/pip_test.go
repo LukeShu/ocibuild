@@ -197,9 +197,9 @@ func TestPIP(t *testing.T) {
 				recording_installs.Record(
 					"sha256",
 					"pip",
-					&direct_url.DirectURL{ //nolint:exhaustivestruct
+					&direct_url.DirectURL{ //nolint:exhaustruct
 						URL: "file://" + filepath.ToSlash(filepath.Join(tmpdir, filename)),
-						//nolint:exhaustivestruct
+						//nolint:exhaustruct
 						ArchiveInfo: &direct_url.ArchiveInfo{},
 					},
 				),

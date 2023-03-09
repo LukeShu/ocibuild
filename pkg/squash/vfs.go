@@ -112,7 +112,7 @@ func (f *fsfile) Get(child string, create, followLinks bool) (*fsfile, error) {
 			f.children = make(map[string]*fsfile)
 		}
 		if _, ok := f.children[child]; create && !ok {
-			f.children[child] = &fsfile{ //nolint:exhaustivestruct
+			f.children[child] = &fsfile{ //nolint:exhaustruct
 				name:   path.Join(f.name, child),
 				parent: f,
 			}

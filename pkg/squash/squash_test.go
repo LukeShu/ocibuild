@@ -64,7 +64,7 @@ func ParseTestLayer(t *testing.T, layer ociv1.Layer) TestLayer {
 			t.Fatal(err)
 		}
 
-		ret = append(ret, TestFile{ //nolint:exhaustivestruct
+		ret = append(ret, TestFile{ //nolint:exhaustruct
 			Name:     header.Name,
 			Type:     header.Typeflag,
 			Linkname: header.Linkname,

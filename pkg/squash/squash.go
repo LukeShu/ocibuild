@@ -18,7 +18,7 @@ import (
 )
 
 func loadLayers(layers []ociv1.Layer, omitContent bool) (*fsfile, error) {
-	root := &fsfile{ //nolint:exhaustivestruct
+	root := &fsfile{ //nolint:exhaustruct
 		name: ".",
 	}
 	root.parent = root

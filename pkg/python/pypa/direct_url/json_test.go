@@ -20,9 +20,9 @@ func TestJSONDumps(t *testing.T) {
 	testcases := []testcase{
 		//nolint:lll // long literals
 		{
-			Input: DirectURL{ //nolint:exhaustivestruct
+			Input: DirectURL{ //nolint:exhaustruct
 				URL:         "file:///run/user/1000/tmpdir/TestPIPFlask-1.1.2-py2.py3-none-any.whl2100032774/001/Flask-1.1.2-py2.py3-none-any.whl",
-				ArchiveInfo: &ArchiveInfo{}, //nolint:exhaustivestruct
+				ArchiveInfo: &ArchiveInfo{}, //nolint:exhaustruct
 			},
 			Output: `{"archive_info": {}, "url": "file:///run/user/1000/tmpdir/TestPIPFlask-1.1.2-py2.py3-none-any.whl2100032774/001/Flask-1.1.2-py2.py3-none-any.whl"}`,
 		},

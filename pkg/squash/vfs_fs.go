@@ -53,7 +53,7 @@ func (f *fsfile) Open(name string) (_ fs.File, err error) {
 	if err != nil {
 		return nil, err
 	}
-	return &fsfileReader{ //nolint:exhaustivestruct
+	return &fsfileReader{ //nolint:exhaustruct
 		origName: name,
 		tgt:      tgt,
 		lnk:      lnk,

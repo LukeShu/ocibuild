@@ -28,7 +28,7 @@ var (
 		SilenceErrors: true, // main() will handle this after .ExecuteContext() returns
 		SilenceUsage:  true, // our FlagErrorFunc will handle it
 
-		CompletionOptions: cobra.CompletionOptions{ //nolint:exhaustivestruct
+		CompletionOptions: cobra.CompletionOptions{ //nolint:exhaustruct
 			DisableDefaultCmd: true,
 		},
 	}
