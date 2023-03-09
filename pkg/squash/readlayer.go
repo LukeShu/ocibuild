@@ -28,7 +28,7 @@ type layerFS struct {
 // parseLayer parses a Layer in to a filesystem object, with the following sanitizations made for
 // consistent querying:
 //
-//  - Paths are always path.Clean()'d (notably, directories do NOT contain trailing "/").
+//   - Paths are always path.Clean()'d (notably, directories do NOT contain trailing "/").
 func parseLayer(layer ociv1.Layer, omitContent bool) (*layerFS, error) {
 	lfs := new(layerFS)
 	layerReader, err := layer.Uncompressed()

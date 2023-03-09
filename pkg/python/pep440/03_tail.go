@@ -518,6 +518,8 @@ import (
 //	>     Projects with Differing Latest Version:   688/47114 (1.46%)
 //	>
 
+// reVersion is the exact regexp given in Appendix B:
+//
 //	> Appendix B : Parsing version strings with regular expressions
 //	> =============================================================
 //	>

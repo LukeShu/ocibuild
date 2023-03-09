@@ -274,6 +274,7 @@ func (spec SpecifierClause) Match(ver Version) bool {
 //	>
 //	>     ~= 1.4.5.0
 //	>     >= 1.4.5.0, == 1.4.5.*
+
 func matchCompatible(spec, ver Version) bool {
 	prefix := spec
 	prefix.Release = prefix.Release[:len(prefix.Release)-1]
@@ -362,6 +363,7 @@ func matchCompatible(spec, ver Version) bool {
 //	> versions, with the public version identifier being matched as described
 //	> above, and the local version label being checked for equivalence using a
 //	> strict string equality comparison.
+
 func matchStrictMatch(spec, ver Version) bool {
 	if len(spec.Local) == 0 {
 		return spec.PublicVersion.Cmp(ver.PublicVersion) == 0
@@ -453,6 +455,7 @@ func matchPrefixMatch(_spec, _ver Version) bool {
 //	>     != 1.1        # Not equal, so 1.1.post1 matches clause
 //	>     != 1.1.post1  # Equal, so 1.1.post1 does not match clause
 //	>     != 1.1.*      # Same prefix, so 1.1.post1 does not match clause
+
 func matchStrictExclude(spec, ver Version) bool {
 	return !matchStrictMatch(spec, ver)
 }
@@ -478,6 +481,7 @@ func matchPrefixExclude(spec, ver Version) bool {
 //	> ensure the release segments are compared with the same length.
 //	>
 //	> Local version identifiers are NOT permitted in this version specifier.
+
 func matchLE(spec, ver Version) bool {
 	return spec.Cmp(ver) >= 0
 }
@@ -516,6 +520,7 @@ func matchGE(spec, ver Version) bool {
 //	> ensure the release segments are compared with the same length.
 //	>
 //	> Local version identifiers are NOT permitted in this version specifier.
+
 func matchLT(spec, ver Version) bool {
 	return spec.Cmp(ver) > 0
 }

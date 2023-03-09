@@ -81,7 +81,7 @@ func Intersect(a, b []Tag) bool {
 //
 // To get this for a live Python install, use the command:
 //
-//     python -c $'import packaging.tags\nfor tag in packaging.tags.sys_tags(): print(tag)'
+//	python -c $'import packaging.tags\nfor tag in packaging.tags.sys_tags(): print(tag)'
 type Installer []Tag
 
 func (inst Installer) Supports(t Tag) bool {

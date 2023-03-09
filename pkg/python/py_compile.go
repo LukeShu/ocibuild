@@ -39,7 +39,7 @@ type Compiler func(
 //
 // For example:
 //
-//     plat.Compile = ExternalCompiler("python3", "-m", "compileall")
+//	plat.Compile = ExternalCompiler("python3", "-m", "compileall")
 func ExternalCompiler(cmdline ...string) (Compiler, error) {
 	exe, err := dexec.LookPath(cmdline[0])
 	if err != nil {
