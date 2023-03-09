@@ -137,8 +137,8 @@ import (
 //	>   single use of each type and they must exist in a certain order.
 //	>
 //	>
-//	> Summary of differences from \PEP 386
-//	> ====================================
+//	> Summary of differences from PEP 386
+//	> ===================================
 //	>
 //	> * Moved the description of version specifiers into the versioning PEP
 //	>
@@ -183,7 +183,7 @@ import (
 //	> ---------------------------
 //	>
 //	> One key change in the version scheme in this PEP relative to that in
-//	> PEP 386 is to sort top level developmental releases like ``X.Y.devN`` ahead
+//	> :pep:`386` is to sort top level developmental releases like ``X.Y.devN`` ahead
 //	> of alpha releases like ``X.Ya1``. This is a far more logical sort order, as
 //	> projects already using both development releases and alphas/betas/release
 //	> candidates do not want their developmental releases sorted in
@@ -226,7 +226,7 @@ import (
 //	> A more opinionated description of the versioning scheme
 //	> -------------------------------------------------------
 //	>
-//	> As in PEP 386, the primary focus is on codifying existing practices to make
+//	> As in :pep:`386`, the primary focus is on codifying existing practices to make
 //	> them more amenable to automation, rather than demanding that existing
 //	> projects make non-trivial changes to their workflow. However, the
 //	> standard scheme allows significantly more flexibility than is needed
@@ -425,7 +425,7 @@ import (
 //	> increase the likelihood of ambiguous or "junk" versions.
 //	>
 //	> For an extended discussion on the various types of normalizations that were
-//	> considered, please see the proof of concept for PEP 440 within pip [5]_.
+//	> considered, please see the proof of concept for :pep:`440` within pip [5]_.
 //	>
 //	>
 //	> Allowing Underscore in Normalization
@@ -437,8 +437,8 @@ import (
 //	> gets normalized to a ``_`` to enable easier parsing of the filename.
 //	>
 //	>
-//	> Summary of changes to \PEP 440
-//	> ==============================
+//	> Summary of changes to PEP 440
+//	> =============================
 //	>
 //	> The following changes were made to this PEP based on feedback received after
 //	> the initial reference implementation was released in setuptools 8.0 and pip
@@ -469,7 +469,7 @@ import (
 //	> ==========
 //	>
 //	> The initial attempt at a standardised version scheme, along with the
-//	> justifications for needing such a standard can be found in PEP 386.
+//	> justifications for needing such a standard can be found in :pep:`386`.
 //	>
 //	> .. [1] Reference Implementation of PEP 440 Versions and Specifiers
 //	>    https://github.com/pypa/packaging/pull/1

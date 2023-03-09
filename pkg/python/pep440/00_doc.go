@@ -19,14 +19,14 @@ package pep440
 //	> Author: Nick Coghlan <ncoghlan@gmail.com>,
 //	>         Donald Stufft <donald@stufft.io>
 //	> BDFL-Delegate: Nick Coghlan <ncoghlan@gmail.com>
-//	> Discussions-To: Distutils SIG <distutils-sig@python.org>
+//	> Discussions-To: distutils-sig@python.org
 //	> Status: Active
 //	> Type: Informational
 //	> Content-Type: text/x-rst
 //	> Created: 18-Mar-2013
-//	> Post-History: 30 Mar 2013, 27 May 2013, 20 Jun 2013,
-//	>               21 Dec 2013, 28 Jan 2014, 08 Aug 2014
-//	>               22 Aug 2014
+//	> Post-History: 30-Mar-2013, 27-May-2013, 20-Jun-2013,
+//	>               21-Dec-2013, 28-Jan-2014, 08-Aug-2014,
+//	>               22-Aug-2014
 //	> Replaces: 386
 //	> Resolution: https://mail.python.org/pipermail/distutils-sig/2014-August/024673.html
 //	>
@@ -38,7 +38,7 @@ package pep440
 //	> distributions, and declaring dependencies on particular versions.
 //	>
 //	> This document addresses several limitations of the previous attempt at a
-//	> standardized approach to versioning, as described in PEP 345 and PEP 386.
+//	> standardized approach to versioning, as described in :pep:`345` and :pep:`386`.
 //	>
 //	>
 //	> Definitions
@@ -46,7 +46,7 @@ package pep440
 //	>
 //	> The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 //	> "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this
-//	> document are to be interpreted as described in RFC 2119.
+//	> document are to be interpreted as described in :rfc:`2119`.
 //	>
 //	> "Projects" are software components that are made available for integration.
 //	> Projects include Python libraries, frameworks, scripts, plugins,

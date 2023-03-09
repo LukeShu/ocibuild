@@ -957,9 +957,9 @@ func (a PublicVersion) Cmp(b PublicVersion) int {
 //	> Version ordering across different metadata versions
 //	> ---------------------------------------------------
 //	>
-//	> Metadata v1.0 (PEP 241) and metadata v1.1 (PEP 314) do not specify a standard
-//	> version identification or ordering scheme. However metadata v1.2 (PEP 345)
-//	> does specify a scheme which is defined in PEP 386.
+//	> Metadata v1.0 (:pep:`241`) and metadata v1.1 (:pep:`314`) do not specify a standard
+//	> version identification or ordering scheme. However metadata v1.2 (:pep:`345`)
+//	> does specify a scheme which is defined in :pep:`386`.
 //	>
 //	> Due to the nature of the simple installer API it is not possible for an
 //	> installer to be aware of which metadata version a particular distribution was
@@ -970,7 +970,7 @@ func (a PublicVersion) Cmp(b PublicVersion) int {
 //	> versions of a project.
 //	>
 //	> Due to the above, this PEP MUST be used for all versions of metadata and
-//	> supersedes PEP 386 even for metadata v1.2. Tools SHOULD ignore any versions
+//	> supersedes :pep:`386` even for metadata v1.2. Tools SHOULD ignore any versions
 //	> which cannot be parsed by the rules in this PEP, but MAY fall back to
 //	> implementation defined version parsing and ordering schemes if no versions
 //	> complying with this PEP are available.
