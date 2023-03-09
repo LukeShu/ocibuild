@@ -1,4 +1,5 @@
 // Copyright (C) 2021-2022  Ambassador Labs
+// Copyright (C) 2023  Luke Shumaker <lukeshu@lukeshu.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -264,7 +265,7 @@ func (wh *wheel) installToVFS(
 	} else {
 		dstDir = plat.Scheme.PlatLib
 	}
-	vfs := make(map[string]fsutil.FileReference)
+	vfs := make(map[string]*zipEntry)
 	for _, file := range wh.zip.File {
 		create(vfs, minTime, path.Join(dstDir, file.FileHeader.Name), &zipEntry{
 			header: file.FileHeader,
@@ -346,8 +347,10 @@ func (wh *wheel) installToVFS(
 	delete(vfs, path.Join(dstDir, strings.TrimSuffix(distInfoDir, ".dist-info")+".data"))
 	//   f. Compile any installed .py to .pyc. (Uninstallers should be smart
 	//      enough to remove .pyc even if it is not mentioned in RECORD.)
+	vfs2 := make(map[string]fsutil.FileReference, len(vfs))
 	var srcs []fsutil.FileReference //nolint:prealloc // 'continue' is quite likely
-	for _, file := range vfs {
+	for name, file := range vfs {
+		vfs2[name] = file
 		if !strings.HasSuffix(file.Name(), ".py") {
 			continue
 		}
@@ -361,10 +364,10 @@ func (wh *wheel) installToVFS(
 		return nil, "", fmt.Errorf("py_compile: %w", err)
 	}
 	for _, newFile := range outs {
-		vfs[newFile.FullName()] = newFile
+		vfs2[newFile.FullName()] = newFile
 	}
 
-	return vfs, path.Join(dstDir, distInfoDir), nil
+	return vfs2, path.Join(dstDir, distInfoDir), nil
 }
 
 //
@@ -372,7 +375,7 @@ func (wh *wheel) installToVFS(
 // ''''''''''''''''''''''''''''''
 //
 
-func rewritePython(plat python.Platform, vfs map[string]fsutil.FileReference, vfsTypes map[string]string) error {
+func rewritePython(plat python.Platform, vfs map[string]*zipEntry, vfsTypes map[string]string) error {
 	// Rewrite ``#!python``.
 	//     In wheel, scripts are packaged in
 	//     ``{distribution}-{version}.data/scripts/``.  If the first line of
@@ -401,7 +404,7 @@ func rewritePython(plat python.Platform, vfs map[string]fsutil.FileReference, vf
 			continue
 		}
 
-		entry := vfs[filename].(*zipEntry) //nolint:forcetypeassert // it's a bug if it's not true
+		entry := vfs[filename]
 
 		originalOpen := entry.open
 		shebang := plat.ConsoleShebang

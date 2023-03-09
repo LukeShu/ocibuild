@@ -1,4 +1,5 @@
 // Copyright (C) 2021  Ambassador Labs
+// Copyright (C) 2023  Luke Shumaker <lukeshu@lukeshu.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -58,7 +59,7 @@ func (f *zipEntry) IsDir() bool                  { return f.header.FileInfo().Is
 func (f *zipEntry) Sys() interface{}             { return f.header.FileInfo().Sys() }
 func (f *zipEntry) Open() (io.ReadCloser, error) { return f.open() }
 
-func rename(vfs map[string]fsutil.FileReference, oldpath, newpath string) error {
+func rename(vfs map[string]*zipEntry, oldpath, newpath string) error {
 	ref, ok := vfs[oldpath]
 	if !ok {
 		return &os.LinkError{
@@ -69,16 +70,16 @@ func rename(vfs map[string]fsutil.FileReference, oldpath, newpath string) error 
 		}
 	}
 	isDir := ref.IsDir() //nolint:ifshort // gotta do this before setting .header.Name
-	ref.(*zipEntry).header.Name = newpath
+	ref.header.Name = newpath
 	if isDir {
-		ref.(*zipEntry).header.Name += "/"
+		ref.header.Name += "/"
 	}
 	delete(vfs, oldpath)
 	vfs[newpath] = ref
 	return nil
 }
 
-func create(vfs map[string]fsutil.FileReference, mtime time.Time, name string, content *zipEntry) {
+func create(vfs map[string]*zipEntry, mtime time.Time, name string, content *zipEntry) {
 	isDir := strings.HasSuffix(content.header.Name, "/")
 	content.header.Name = name
 	if isDir {
