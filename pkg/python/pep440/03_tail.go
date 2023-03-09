@@ -471,14 +471,8 @@ import (
 //	> The initial attempt at a standardised version scheme, along with the
 //	> justifications for needing such a standard can be found in :pep:`386`.
 //	>
-//	> .. [1] `Reference Implementation of PEP 440 Versions and Specifiers
-//	>    <https://github.com/pypa/packaging/pull/1>`__
-//	>
 //	> .. [2] `Version compatibility analysis script
 //	>    <https://github.com/pypa/packaging/blob/master/tasks/check.py>`__
-//	>
-//	> .. [3] `Pessimistic version constraint
-//	>    <http://docs.rubygems.org/read/chapter/16>`__
 //	>
 //	> .. [4] `File URIs in Windows
 //	>    <http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`__
@@ -495,11 +489,17 @@ import (
 //	> .. [8] `Amend PEP 440 with Wider Feedback on Release Candidates
 //	>    <https://mail.python.org/pipermail/distutils-sig/2014-December/025409.html>`__
 //	>
-//	> .. [9] `Changing the status of PEP 440 to Provisional
-//	>    <https://mail.python.org/pipermail/distutils-sig/2014-December/025412.html>`__
-//	>
 //	> .. [10] `PEP 440: regex should not permit Unicode [Nd] characters
 //	>    <https://github.com/python/peps/pull/966>`__
+//	>
+//	> * `Reference Implementation of PEP 440 Versions and Specifiers
+//	>   <https://github.com/pypa/packaging/pull/1>`__
+//	>
+//	> * `Pessimistic version constraint
+//	>   <http://docs.rubygems.org/read/chapter/16>`__
+//	>
+//	> * `Changing the status of PEP 440 to Provisional
+//	>   <https://mail.python.org/pipermail/distutils-sig/2014-December/025412.html>`__
 //	>
 //	> Appendix A
 //	> ==========
