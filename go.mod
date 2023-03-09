@@ -4,7 +4,7 @@
 
 module github.com/datawire/ocibuild
 
-go 1.17
+go 1.18
 
 require (
 	github.com/datawire/dlib v1.2.5-0.20211118180738-bf0d3d767da0
