@@ -7,7 +7,7 @@
 // https://github.com/pypa/packaging.python.org/blob/main/source/specifications/binary-distribution-format.rst,
 // which has been placed in to the public domain.
 //
-// It is up-to-date as of 2021-11-13 (commit 526ee6d6563855551bfee4d967a06823044ddbd4, 2021-09-02).
+// It is up-to-date as of 2021-11-13 (commit cf8dea06ec08279139e04d9608ed52a294c63834, 2022-12-31).
 
 package bdist
 
@@ -587,9 +587,13 @@ func (a *BuildTag) Cmp(b *BuildTag) int {
 func GenerateFilename(data FileNameData) (string, error) {
 	var ret strings.Builder
 	//	> - In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
-	//	>   and FULL STOP) should be replaced with ``_`` (LOW LINE). This is equivalent
-	//	>   to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
-	ret.WriteString(regexp.MustCompile("[-_.]+").ReplaceAllLiteralString(data.Distribution, "_"))
+	//	>   and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
+	//	>   characters should be replaced with corresponding lowercase ones. This is
+	//	>   equivalent to regular :ref:`name normalization <name-normalization>` followed by replacing ``-`` with ``_``.
+	//	>   Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
+	//	>   uppercase letters, however, as these were allowed by an earlier version of
+	//	>   this specification.
+	ret.WriteString(strings.ToLower(regexp.MustCompile("[-_.]+").ReplaceAllLiteralString(data.Distribution, "_")))
 	//	> - Version numbers should be normalised according to :pep:`440`. Normalised
 	//	>   version numbers cannot contain ``-``.
 	ver, err := data.Version.Normalize()
@@ -645,7 +649,7 @@ func GenerateFilename(data FileNameData) (string, error) {
 //	> #. ``{distribution}-{version}.data/`` contains one subdirectory
 //	>    for each non-empty install scheme key not already covered, where
 //	>    the subdirectory name is an index into a dictionary of install paths
-//	>    (e.g. ``data``, ``scripts``, ``include``, ``purelib``, ``platlib``).
+//	>    (e.g. ``data``, ``scripts``, ``headers``, ``purelib``, ``platlib``).
 //	> #. Python scripts must appear in ``scripts`` and begin with exactly
 //	>    ``b'#!python'`` in order to enjoy script wrapper generation and
 //	>    ``#!python`` rewriting at install time.  They may have any or no
@@ -797,10 +801,10 @@ var strongHashes = map[string]func() hash.Hash{
 //	>
 //	> See
 //	>
-//	> - https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
-//	> - https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html
-//	> - https://self-issued.info/docs/draft-ietf-jose-json-web-key.html
-//	> - https://self-issued.info/docs/draft-jones-jose-json-private-key.html
+//	> - https://datatracker.ietf.org/doc/html/rfc7515
+//	> - https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-serialization-01
+//	> - https://datatracker.ietf.org/doc/html/rfc7517
+//	> - https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01
 //	>
 //	>
 

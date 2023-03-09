@@ -143,6 +143,9 @@ issues:
     - # We only use crypto as specified
       linters: [gosec]
       text: "weak cryptographic primitive"
+    - # Allow long lines
+      linters: [lll]
+      source: '^\t*//\t>'
 
     ## Exceptions for borrowed code #################################
 
